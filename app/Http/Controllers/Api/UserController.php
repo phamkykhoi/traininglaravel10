@@ -28,7 +28,7 @@ class UserController extends Controller
 
     public function store(UserStoreRequest $request)
     {
-
+        
     }
 
     public function update(UserStoreRequest $request, $id)
