@@ -2,7 +2,9 @@
 
 ### General
 
-**BASE_URL:** `http://api-learn-frontend.suntech.edu.vn`
+**base_url:** `http://api-learn-frontend.suntech.edu.vn`
+**content-type: "application/json**
+**Authorization: Bearer access_token**
 
 ### Register
 - URI: `/api/v1/register`
