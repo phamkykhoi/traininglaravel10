@@ -8,7 +8,7 @@
 
 **Authorization: Bearer access_token**
 
-### Register
+## Register
 - URI: `/api/v1/register`
 - Method: `POST`
 
@@ -69,7 +69,7 @@
             }
             ```
 
-### List user
+## List user
 - URI: `/api/v1/user`
 - Method: `GET`
 
