@@ -12,9 +12,9 @@
 - URI: `/api/v1/register`
 - Method: `POST`
 
-- ##### Parameters: `no`
+- #### Parameters: `no`
 
-- ##### Request body:
+- #### Request body:
     | Name      | Type | Validate     |
     | :---        |    :----:   |          ---: |
     | name      | string       | required   |
@@ -22,7 +22,7 @@
     | password   | string        | required      |
 
 
-- ##### Responses
+- #### Responses
     - **Success**
     ```
     {
@@ -73,12 +73,12 @@
 - URI: `/api/v1/user`
 - Method: `GET`
 
-- ##### Parameters: `no`
+- #### Parameters: `no`
 
-- ##### Request body: `no`
+- #### Request body: `no`
 
 
-- ##### Responses:
+- #### Responses:
     - **Success**
     ```
     {
