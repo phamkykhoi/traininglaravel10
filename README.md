@@ -1,6 +1,6 @@
 ## API DÀNH CHO FRONTEND DEVELOPER
 
-### General
+## General
 
 **base_url:** `http://api-learn-frontend.suntech.edu.vn`
 
