@@ -14,3 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return '<h3>SUNTECH API SHARING FRONTEND BEGINER DEVELOPER</h3>';
+});
