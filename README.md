@@ -64,10 +64,71 @@
             ```
             {
                 "status": false,
-                "code": 400,
+                "code": 500,
                 "message": "Đăng ký không thành công"
             }
             ```
+            
+## Login
+- URI: `/api/v1/login`
+- Method: `POST`
+
+- #### Parameters: `no`
+
+- #### Request body:
+    | Name      | Type | Validate     |
+    | :---        |    :----:   |          ---: |
+    | email   | string        | required|
+    | password   | string        | required      |
+
+
+- #### Responses
+    - **Success**
+    ```
+    {
+        "status": true,
+        "code": 200,
+        "message": "success",
+        "data": {
+            "user": {
+                "id": 1,
+                "parent_id": 0,
+                "name": "suntech academy",
+                "email": "suntechacademy@gmail.com",
+                "phone": null,
+                "address": null,
+                "email_verified_at": null,
+                "bio": null,
+                "socials": null,
+                "deleted_at": null,
+            },
+            "access_token": "1|koUCOSQG2hbV5efhKZWYKpmvbN5xCv9wYVpwbV7zd632fbdd"
+        }
+    }
+    ```
+    - **Errors**
+        - **Error Code 422**
+            ```
+            {
+                "status": false,
+                "code": 422,
+                "message": "Thông tin không hợp lệ",
+                "errors": {
+                    "email": "Email không đúng định dạng",
+                    "password": "Mật khẩu không được bỏ trống"
+                }
+            }
+            ```
+
+        - **Error Code 500**
+            ```
+            {
+                "status": false,
+                "code": 500,
+                "message": "Đăng nhập thất bại"
+            }
+            ```
+            
 
 ## List user
 - URI: `/api/v1/user`
