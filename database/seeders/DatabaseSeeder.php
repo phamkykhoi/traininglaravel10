@@ -13,6 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-
+        User::create([
+            'name' => 'suntech academy',
+            'email' => 'suntechacademy@gmail.com',
+            'password' => bcrypt(12345678)
+        ]);
     }
 }
