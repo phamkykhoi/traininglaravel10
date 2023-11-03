@@ -17,7 +17,6 @@ return new class extends Migration {
             $table->unsignedInteger('parent_id')->default(0);
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('username')->unique()->nullable();
             $table->string('password')->default(bcrypt('12345678@'));
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
