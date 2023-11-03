@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UserStoreRequest extends BaseRequest
 {
@@ -23,7 +23,7 @@ class UserStoreRequest extends BaseRequest
     {
         return [
             'name' => 'required|min:2|max:60',
-            'email' => 'required|email|max:120',
+            'email' => ['required', 'email', 'max:120', Rule::unique('users')],
             'phone' => 'required|numeric|max:15',
             'address' => 'string|required|max:200',
             'gender' => 'required|in:1,2,3',
