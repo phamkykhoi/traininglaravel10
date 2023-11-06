@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Http\Requests\UserStoreRequest;
+use App\Http\Requests\UserUpdateRequest;
 
 class UserController extends Controller
 {
     public function index()
     {
         $query = User::query();
-        $userPaginated = $query->paginate();
+        $userPaginated = $query->orderBy('id', 'desc')->paginate();
 
         return $this->success([
             'users' => $userPaginated->items(),
@@ -28,12 +29,22 @@ class UserController extends Controller
 
     public function store(UserStoreRequest $request)
     {
-        
+        try {
+            User::create($request->all());
+            return $this->success();
+        } catch (\Exception $e) {
+            return $this->exceptionMessage($e);
+        }
     }
 
-    public function update(UserStoreRequest $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
-
+        try {
+            User::find($id)->update($request->all());
+            return $this->success();
+        } catch (\Exception $e) {
+            return $this->exceptionMessage($e);
+        }
     }
 
     public function show($id)

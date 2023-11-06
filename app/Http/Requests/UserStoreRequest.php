@@ -24,12 +24,12 @@ class UserStoreRequest extends BaseRequest
         return [
             'name' => 'required|min:2|max:60',
             'email' => ['required', 'email', 'max:120', Rule::unique('users')],
-            'phone' => 'required|numeric|max:15',
+            'phone' => 'required|numeric',
             'address' => 'string|required|max:200',
             'gender' => 'required|in:1,2,3',
             'password' => 'required|min:6|max:15|confirmed',
             'password_confirmation' => 'required|min:6|max:15',
-            'avatar' => ['nullable', 'mimes:jpg,png,webp', 'max:2000']
+            'avatar' => ['nullable', 'string']
         ];
     }
 
@@ -41,10 +41,11 @@ class UserStoreRequest extends BaseRequest
             'name.max' => 'Họ và tên không được vượt quá 60 ký tự',
             'email.required' => 'Email không được bỏ trống',
             'email.email' => 'Email không đúng định dạng',
+            'email.unique' => 'Email đã tồn tại',
             'email.max' => 'Email không được vượt quá 120 ký tự',
             'phone.required' => 'Số điện thoại không được để trống',
             'phone.numeric' => 'Số điện thoại phải là số',
-            'phone.max' => 'Số điện thoại không được vượt quá 5 ký tự',
+            'phone.max' => 'Số điện thoại không được vượt quá 15 ký tự',
             'address.required' => 'Địa chỉ không được bỏ trống',
             'address.max' => 'Địa chỉ không được vượt quá 200 ký tự',
             'gender.required' => 'Vui lòng chọn giới tính',
