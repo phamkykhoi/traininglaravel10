@@ -210,7 +210,7 @@
     | password_confirmation   | string        | required
     | phone   | number        | required      |required      |
     | gender   | string        | required      |
-    | address   | string        | required      |
+    | avatar   | string        |       |
 
 
 - #### Responses
@@ -275,6 +275,7 @@
     | phone   | number        | required      |required      |
     | gender   | string        | required      |
     | address   | string        | required      |
+    | avatar   | string        |       |
 
 
 - #### Responses
