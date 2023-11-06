@@ -26,6 +26,7 @@ class User extends Authenticatable
         'address',
         'email_verified_at',
         'bio',
+        'gender',
         'socials',
         'remember_token',
         'deleted_at',
@@ -50,6 +51,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'created_at' => 'date:Y-m-d',
     ];
 
     protected static function booted()
