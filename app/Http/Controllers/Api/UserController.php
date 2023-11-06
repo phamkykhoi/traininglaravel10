@@ -12,7 +12,7 @@ class UserController extends Controller
     public function index()
     {
         $query = User::query();
-        $userPaginated = $query->orderBy('id', 'desc')->paginate();
+        $userPaginated = $query->orderBy('id', 'desc')->where('parent_id', auth()->id())->paginate(10);
 
         return $this->success([
             'users' => $userPaginated->items(),
@@ -52,5 +52,11 @@ class UserController extends Controller
         return $this->success([
             'user' => User::find($id)
         ]);
+    }
+
+    public function destroy($id)
+    {
+        User::destroy($id);
+        return $this->success();
     }
 }
