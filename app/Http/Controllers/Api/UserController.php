@@ -12,7 +12,13 @@ class UserController extends Controller
     public function index()
     {
         $query = User::query();
-        $userPaginated = $query->orderBy('id', 'desc')->where('parent_id', auth()->id())->paginate(10);
+        $inputs = request()->all();
+
+        if (!empty($inputs['name'])) {
+            $query->where('name', 'like', '%'. $inputs['name'] .'%');
+        }
+
+        $userPaginated = $query->orderBy('id', 'desc')->where('parent_id', auth()->id())->paginate();
 
         return $this->success([
             'users' => $userPaginated->items(),

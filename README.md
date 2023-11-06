@@ -134,7 +134,10 @@
 - URI: `/api/v1/user`
 - Method: `GET`
 
-- #### Parameters: `no`
+- #### Parameters:
+    | Name      | Type | Validate     |
+    | :---        |    :----:   |          ---: |
+    | name   | string        | No |
 
 - #### Request body: `no`
 
@@ -172,6 +175,207 @@
                 "to": 1
             }
         }
+    }
+    ```
+    - **Errors**
+        - **Error Code 401**
+            ```
+            {
+                "status": false,
+                "code": 401,
+                "message": "Unauthorized!"
+            }
+            ```
+
+        - **Error Code 500**
+            ```
+            {
+                "status": false,
+                "code": 500,
+                "message": "Lỗi hệ thống"
+            }
+            ```
+## Create user
+- URI: `/api/v1/user`
+- Method: `POST`
+
+- #### Parameters: `no`
+
+- #### Request body:
+    | Name      | Type | Validate     |
+    | :---        |    :----:   |          ---: |
+    | name      | string       | required   |
+    | email   | string        | required, format email    |
+    | password   | string        | required      |
+    | password_confirmation   | string        | required
+    | phone   | number        | required      |required      |
+    | gender   | string        | required      |
+    | address   | string        | required      |
+
+
+- #### Responses
+    - **Success**
+    ```
+    {
+        "status": true,
+        "code": 200,
+        "message": "success",
+        "data": null
+    }
+    ```
+    - **Errors**
+        - **Error Code 401**
+            ```
+            {
+                "status": false,
+                "code": 401,
+                "message": "Unauthorized!"
+            }
+            ```
+
+        - **Error Code 422**
+            ```
+            {
+                "status": false,
+                "code": 422,
+                "message": "Thông tin không hợp lệ",
+                "errors": {
+                    "name": "Họ và tên không được bỏ trống",
+                    "email": "Email không đúng định dạng",
+                    "phone": "Số điện thoại không được để trống",
+                    "address": "The address field must be a string.",
+                    "password": "Mật khẩu không được nhỏ hơn 6 ký tự",
+                    "password_confirmation": "Mật khẩu nhập lại không được nhỏ hơn 6 ký tự"
+                }
+            }
+            ```
+
+        - **Error Code 500**
+            ```
+            {
+                "status": false,
+                "code": 500,
+                "message": "Lỗi hệ thống"
+            }
+            ```
+
+## Update user
+- URI: `/api/v1/user/:id`
+- Method: `PUT`
+
+- #### Parameters: `no`
+
+- #### Request body:
+    | Name      | Type | Validate     |
+    | :---        |    :----:   |          ---: |
+    | name      | string       | required   |
+    | email   | string        | required, format email    |
+    | password   | string        | required      |
+    | password_confirmation   | string        | required
+    | phone   | number        | required      |required      |
+    | gender   | string        | required      |
+    | address   | string        | required      |
+
+
+- #### Responses
+    - **Success**
+    ```
+    {
+        "status": true,
+        "code": 200,
+        "message": "success",
+        "data": null
+    }
+    ```
+    - **Errors**
+        - **Error Code 401**
+            ```
+            {
+                "status": false,
+                "code": 401,
+                "message": "Unauthorized!"
+            }
+            ```
+
+        - **Error Code 422**
+            ```
+            {
+                "status": false,
+                "code": 422,
+                "message": "Thông tin không hợp lệ",
+                "errors": {
+                    "name": "Họ và tên không được bỏ trống",
+                    "email": "Email không đúng định dạng",
+                    "phone": "Số điện thoại không được để trống",
+                    "address": "The address field must be a string.",
+                    "password": "Mật khẩu không được nhỏ hơn 6 ký tự",
+                    "password_confirmation": "Mật khẩu nhập lại không được nhỏ hơn 6 ký tự"
+                }
+            }
+            ```
+
+        - **Error Code 500**
+            ```
+            {
+                "status": false,
+                "code": 500,
+                "message": "Lỗi hệ thống"
+            }
+            ```
+
+## Show user
+- URI: `/api/v1/user/:id`
+- Method: `GET`
+
+- #### Parameters: `no`
+
+- #### Request body: `no`
+
+- #### Responses
+    - **Success**
+    ```
+    {
+        "status": true,
+        "code": 200,
+        "message": "success",
+        "data": null
+    }
+    ```
+    - **Errors**
+        - **Error Code 401**
+            ```
+            {
+                "status": false,
+                "code": 401,
+                "message": "Unauthorized!"
+            }
+            ```
+
+        - **Error Code 500**
+            ```
+            {
+                "status": false,
+                "code": 500,
+                "message": "Lỗi hệ thống"
+            }
+            ```
+
+## Delete user
+- URI: `/api/v1/user/:id`
+- Method: `Delete`
+
+- #### Parameters: `no`
+
+- #### Request body: `no`
+
+- #### Responses
+    - **Success**
+    ```
+    {
+        "status": true,
+        "code": 200,
+        "message": "success",
+        "data": null
     }
     ```
     - **Errors**
