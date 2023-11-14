@@ -36,20 +36,36 @@ class UserController extends Controller
     public function store(UserStoreRequest $request)
     {
         try {
-            User::create($request->all());
+            User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => bcrypt($request->password),
+                'phone' => $request->phone,
+                'address' => $request->address,
+                'gender' => $request->gender,
+            ]);
+
             return $this->success();
         } catch (\Exception $e) {
-            return $this->exceptionMessage($e);
+            return $this->error($e->getMessage());
         }
     }
 
     public function update(UserUpdateRequest $request, $id)
     {
         try {
-            User::find($id)->update($request->all());
+            User::find($id)->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => bcrypt($request->password),
+                'phone' => $request->phone,
+                'address' => $request->address,
+                'gender' => $request->gender,
+            ]);
+
             return $this->success();
         } catch (\Exception $e) {
-            return $this->exceptionMessage($e);
+            return $this->error($e->getMessage());
         }
     }
 
