@@ -54,14 +54,19 @@ class UserController extends Controller
     public function update(UserUpdateRequest $request, $id)
     {
         try {
-            User::find($id)->update([
+            $inputs = [
                 'name' => $request->name,
                 'email' => $request->email,
-                'password' => bcrypt($request->password),
                 'phone' => $request->phone,
                 'address' => $request->address,
                 'gender' => $request->gender,
-            ]);
+            ];
+
+            if ($request->password) {
+                $inputs['password'] = bcrypt($request->password);
+            }
+
+            User::find($id)->update($inputs);
 
             return $this->success();
         } catch (\Exception $e) {
