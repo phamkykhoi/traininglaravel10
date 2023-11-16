@@ -21,16 +21,21 @@ class UserUpdateRequest extends BaseRequest
      */
     public function rules(): array
     {
-        return [
+        $rules = [
             'name' => 'required|min:2|max:60',
             'email' => ['required', 'email', 'max:120', Rule::unique('users')->ignore($this->user)],
             'phone' => 'required|numeric',
             'address' => 'string|required|max:200',
             'gender' => 'required|in:1,2,3',
-            'password' => 'required|min:6|max:15|confirmed',
-            'password_confirmation' => 'required|min:6|max:15',
             'avatar' => ['nullable', 'string']
         ];
+
+        if (request()->password) {
+            $rules['password'] = 'min:6|max:15|confirmed';
+            $rules['password_confirmation'] = 'required|min:6|max:15';
+        }
+
+        return $rules;
     }
 
     public function messages()
