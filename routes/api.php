@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\UploadController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\LogoutController;
@@ -24,5 +25,6 @@ Route::prefix('v1')->group(function () {
     Route::middleware('auth:sanctum')->group(function() {
         Route::delete('logout', [LogoutController::class, 'logout']);
         Route::resource('user', UserController::class);
+        Route::post('upload-file', [UploadController::class, 'upload']);
     });
 });
