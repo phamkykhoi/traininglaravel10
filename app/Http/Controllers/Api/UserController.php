@@ -43,6 +43,7 @@ class UserController extends Controller
                 'phone' => $request->phone,
                 'address' => $request->address,
                 'gender' => $request->gender,
+                'avatar' => $request->avatar,
             ]);
 
             return $this->success();
@@ -60,6 +61,7 @@ class UserController extends Controller
                 'phone' => $request->phone,
                 'address' => $request->address,
                 'gender' => $request->gender,
+                'avatar' => $request->avatar,
             ];
 
             if ($request->password) {
