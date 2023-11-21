@@ -23,4 +23,13 @@ class UploadRequest extends BaseRequest
             'file' => ['required', 'mimes:jpg,png,gif,csv,xls,webp', 'max:3000']
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'file.required' => 'Vui lòng chọn file',
+            'file.mimes' => 'File không đúng định dạng',
+            'file.max' => 'File không được vượt quá 3MB',
+        ];
+    }
 }

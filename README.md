@@ -397,3 +397,58 @@
                 "message": "Lỗi hệ thống"
             }
             ```
+
+## Upload file
+- URI: `/api/v1/upload-file`
+- Method: `POST`
+
+- #### Parameters: `no`
+
+- #### Request body:
+    | Name      | Type | Validate     |
+    | :---        |    :----:   |          ---: |
+    | file      | Object       | required, mimes:jpg,png,gif,csv,xls,webp, max:3000   |
+
+
+- #### Responses
+    - **Success**
+    ```
+    {
+        "status": true,
+        "code": 200,
+        "message": "success",
+        "data": {
+            "file_url": "/storage/media/6NCbAON1tzYtqNto3AKxvbIwCLvlffBz3vVE1bK2.png"
+        }
+    }
+    ```
+    - **Errors**
+        - **Error Code 401**
+            ```
+            {
+                "status": false,
+                "code": 401,
+                "message": "Unauthorized!"
+            }
+            ```
+
+        - **Error Code 422**
+            ```
+            {
+                "status": false,
+                "code": 422,
+                "message": "Thông tin không hợp lệ",
+                "errors": {
+                    "file": "Vui lòng chọn file",
+                }
+            }
+            ```
+
+        - **Error Code 500**
+            ```
+            {
+                "status": false,
+                "code": 500,
+                "message": "Lỗi hệ thống"
+            }
+            ```
