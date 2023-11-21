@@ -28,6 +28,7 @@ class User extends Authenticatable
         'bio',
         'gender',
         'socials',
+        'avatar',
         'remember_token',
         'deleted_at',
         'created_at',
