@@ -18,7 +18,7 @@ class UserController extends Controller
             $query->where('name', 'like', '%'. $inputs['name'] .'%');
         }
 
-        $userPaginated = $query->orderBy('id', 'desc')->where('parent_id', auth()->id())->paginate();
+        $userPaginated = $query->orderBy('id', 'desc')->where('parent_id', auth()->id())->paginate(request()->per_page ?? 15);
 
         return $this->success([
             'users' => $userPaginated->items(),
