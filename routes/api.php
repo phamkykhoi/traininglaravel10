@@ -24,7 +24,8 @@ Route::prefix('v1')->group(function () {
 
     Route::middleware('auth:sanctum')->group(function() {
         Route::delete('logout', [LogoutController::class, 'logout']);
-        Route::resource('user', UserController::class);
+        Route::resource('user', UserController::class)->except(['create', 'edit']);
+        Route::resource('product', UserController::class)->except(['create', 'edit']);
         Route::post('upload-file', [UploadController::class, 'upload']);
     });
 });
